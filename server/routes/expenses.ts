@@ -40,8 +40,8 @@ export const expenseRoute = new Hono()
         return c.json({ expenses: fakeExpenses })
     })
 
-    .post("/", zValidator("json", createPostSchema), async (c) => {
-        const data = await c.req.valid("json")
+    .post("/", zValidator("json", createPostSchema), (c) => {
+        const data =  c.req.valid("json")
         const expense = createPostSchema.parse(data);
         fakeExpenses.push({
 

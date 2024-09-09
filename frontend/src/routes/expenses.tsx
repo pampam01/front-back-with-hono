@@ -18,7 +18,7 @@ import { useQuery } from '@tanstack/react-query';
 
 
 const getAllExpenses = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 4000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   const response = await api.expenses.$get();
   if (!response.ok) {
     throw new Error("Server Error")
